@@ -1,0 +1,34 @@
+#
+# Blocks of science pipelines
+#
+scienceBlock:
+  - name: "test"
+    id: ["visit=97387"]
+    policy:
+      reduceExposure:
+        config: ["isr.doFlat=False"]
+  - name: "ge_run12_subset"
+    id: ["visit=98042^98043"]
+    policy:
+      reduceExposure:
+        config: ["isr.doFlat=False"]
+  - name: "sky_run12_subset"
+    id: ["visit=97252^97253"]
+    policy:
+      reduceExposure:
+        config: ["isr.doFlat=False"]
+  - name: "ga_run12_subset"
+    id: ["visit=97821"]
+    policy:
+      reduceExposure:
+        config: ["isr.doFlat=False"]
+  - name: "twilight_run12_subset"
+    id: ["visit=97383^97388"]
+    policy:
+      reduceExposure:
+        config: ["isr.doFlat=False"]
+  - name: "quartz_run12_subset"
+    id: ["visit=96952^96944"]
+    policy:
+      reduceExposure:
+        config: ["isr.doFlat=False"]
