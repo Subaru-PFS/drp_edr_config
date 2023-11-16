@@ -1,0 +1,134 @@
+#
+# Blocks of science pipelines
+#
+scienceBlock:
+  - name: "test"
+    id: ["visit=97252^97253"]
+    policy:
+      reduceExposure:
+        config: ["isr.doFlat=False", "doAdjustDetectorMap=True", "adjustDetectorMap.doSlitOffsets=True"]
+  - name: "run12"
+    id: ["visit=97378^97379^97828^98042^98043^98049^98050^98059^99039^99040^99050^98336^98337^97821^98004^98408^97581^99056^97587^99058^97164^97301^97314^98014^98031^98817^99067^97993"]
+    policy:
+      reduceExposure:
+        config: ["isr.doFlat=False", "doAdjustDetectorMap=True", "adjustDetectorMap.doSlitOffsets=True"]
+  - name: "run12_nofcal"
+    id: ["visit=97083^97252^97253^97696^97698^98208^98318^97484^97485^98330^97127^97137^97138^97546^97548^97550^98034^98390^98392^98394^97813^97814"]
+    policy:
+      reduceExposure:
+        config: ["isr.doFlat=False", "doAdjustDetectorMap=True", "adjustDetectorMap.doSlitOffsets=True"]
+  - name: "run11"
+    id: ["visit=92014^92135^92136^92137^92138^92974^92975^92536^92537^92733^92734^92892^92893^93301^93302^91894^91895^91897^91898^92903^92904^92897^92557^92558^92560^92561^92562^93365^93366^93376^93377^91778^91782^91784^92114^92116^92117"]
+    policy:
+      reduceExposure:
+        config: ["isr.doFlat=False", "doAdjustDetectorMap=True", "adjustDetectorMap.doSlitOffsets=True"]
+  - name: "run11_nofcal"
+    id: ["visit=91563^91881^91901^92643^92644^92646^92736^92738^92740^92743"]
+    policy:
+      reduceExposure:
+        config: ["isr.doFlat=False", "doAdjustDetectorMap=True", "adjustDetectorMap.doSlitOffsets=True"]
+  - name: "run08"
+    id: ["visit=83244^83245^83246^83247^83248^83249^83218^83219^83232^82905^82906^83162^82595^82596^82642^82840^82954^82965^82665^82916^83002^83003"]
+    policy:
+      reduceExposure:
+        config: ["isr.doFlat=False", "doAdjustDetectorMap=True", "adjustDetectorMap.doSlitOffsets=True"]
+  - name: "run08_nofcal"
+    id: ["visit=83149^82978^83081^83082^83095^83137^83147"]
+    policy:
+      reduceExposure:
+        config: ["isr.doFlat=False", "doAdjustDetectorMap=True", "adjustDetectorMap.doSlitOffsets=True"]
+  - name: "ge_run12"
+    id: ["visit=97378^97379^97828^98042^98043^98049^98050^98059^99039^99040^99050^98336^98337"]
+    policy:
+      reduceExposure:
+        config: ["isr.doFlat=False", "doAdjustDetectorMap=True", "adjustDetectorMap.doSlitOffsets=True"]
+  - name: "ge_run11"
+    id: ["visit=92014^92135^92136^92137^92138^92974^92975"]
+    policy:
+      reduceExposure:
+        config: ["isr.doFlat=False", "doAdjustDetectorMap=True", "adjustDetectorMap.doSlitOffsets=True"]
+  - name: "ge_run08"
+    id: ["visit=83244^83245^83246^83247^83248^83249"]
+    policy:
+      reduceExposure:
+        config: ["isr.doFlat=False", "doAdjustDetectorMap=True", "adjustDetectorMap.doSlitOffsets=True"]
+  - name: "sky_run12"
+    id: ["visit=97083^97252^97253^97696^97698^98208^98318^97484^97485^98330^97127^97137^97138^97546^97548^97550^98034^98390^98392^98394^97813^97814"]
+    policy:
+      reduceExposure:
+        config: ["isr.doFlat=False", "doAdjustDetectorMap=True", "adjustDetectorMap.doSlitOffsets=True"]
+  - name: "sky_run11"
+    id: ["visit=91563^91881^91901^92643^92644^92646^92736^92738^92740^92743"]
+    policy:
+      reduceExposure:
+        config: ["isr.doFlat=False", "doAdjustDetectorMap=True", "adjustDetectorMap.doSlitOffsets=True"]
+  - name: "sky_run08"
+    id: ["visit=83149"]
+    policy:
+      reduceExposure:
+        config: ["isr.doFlat=False", "doAdjustDetectorMap=True", "adjustDetectorMap.doSlitOffsets=True"]
+  - name: "ga_run12"
+    id: ["visit=97821^98004^98408"]
+    policy:
+      reduceExposure:
+        config: ["isr.doFlat=False", "doAdjustDetectorMap=True", "adjustDetectorMap.doSlitOffsets=True"]
+  - name: "ga_run11"
+    id: ["visit=92536^92537^92733^92734^92892^92893^93301^93302"]
+    policy:
+      reduceExposure:
+        config: ["isr.doFlat=False", "doAdjustDetectorMap=True", "adjustDetectorMap.doSlitOffsets=True"]
+  - name: "ga_run08"
+    id: ["visit=83218^83219^83232"]
+    policy:
+      reduceExposure:
+        config: ["isr.doFlat=False", "doAdjustDetectorMap=True", "adjustDetectorMap.doSlitOffsets=True"]
+  - name: "co_run12"
+    id: ["visit=97581^99056^97587^99058"]
+    policy:
+      reduceExposure:
+        config: ["isr.doFlat=False", "doAdjustDetectorMap=True", "adjustDetectorMap.doSlitOffsets=True"]
+  - name: "co_run11"
+    id: ["visit=91894^91895^91897^91898^92903^92904^92897"]
+    policy:
+      reduceExposure:
+        config: ["isr.doFlat=False", "doAdjustDetectorMap=True", "adjustDetectorMap.doSlitOffsets=True"]
+  - name: "calspec_run12"
+    id: ["visit=97164^97301^97314^98014^98031^98817^99067^97993"]
+    policy:
+      reduceExposure:
+        config: ["isr.doFlat=False", "doAdjustDetectorMap=True", "adjustDetectorMap.doSlitOffsets=True"]
+  - name: "calspec_run11"
+    id: ["visit=92557^92558^92560^92561^92562^93365^93366^93376^93377^91778^91782^91784^92114^92116^92117"]
+    policy:
+      reduceExposure:
+        config: ["isr.doFlat=False", "doAdjustDetectorMap=True", "adjustDetectorMap.doSlitOffsets=True"]
+  - name: "calspec_run08"
+    id: ["visit=82905^82906^83162"]
+    policy:
+      reduceExposure:
+        config: ["isr.doFlat=False", "doAdjustDetectorMap=True", "adjustDetectorMap.doSlitOffsets=True"]
+  - name: "raster_w_fstar_run08"
+    id: ["visit=82595^82596^82642^82840^82954^82965^82665^82916^83002^83003"]
+    policy:
+      reduceExposure:
+        config: ["isr.doFlat=False", "doAdjustDetectorMap=True", "adjustDetectorMap.doSlitOffsets=True"]
+  - name: "raster_wo_fstar_run08"
+    id: ["visit=82978^83081^83082^83095^83137^83147"]
+    policy:
+      reduceExposure:
+        config: ["isr.doFlat=False", "doAdjustDetectorMap=True", "adjustDetectorMap.doSlitOffsets=True"]
+  - name: "arcs_run12"
+    id: ["visit=96921..96924^96925..96927^96928..96931^96932..96937^96958..96959^96960..96962^96963..96965^96966..96968^96969..96971^97217^97226^97234"]
+    policy:
+      reduceExposure:
+        config: ["isr.doFlat=False", "doAdjustDetectorMap=True", "adjustDetectorMap.doSlitOffsets=True"]
+  - name: "traces_run12"
+    id: ["visit=96938..96944^96952..96956^96972..96976^97036..97047^97049..97064^97236..97237^97240^97242^97774..97778^97779..97783^97786..97790^97805..97806^98595..98603^98604..98608^98610..98616^98626..98627^98654..98658^98665..98669^98671..98677^98687..98688^98715..98719^98720..98724^98726..98732^98742..98743"]
+    policy:
+      reduceExposure:
+        config: ["isr.doFlat=False", "doAdjustDetectorMap=True", "adjustDetectorMap.doSlitOffsets=True"]
+  - name: "twilight_run12"
+    id: ["visit=97168..97173^97383..97388^97833..97838^98063..98068"]
+    policy:
+      reduceExposure:
+        config: ["isr.doFlat=False", "doAdjustDetectorMap=True", "adjustDetectorMap.doSlitOffsets=True"]

@@ -3,9 +3,10 @@
 usage() {
     echo "Process the EDR data with yaml file" 1>&2
     echo "" 1>&2
-    echo "Usage: $0 [-c CORES] [-R] [-M] [-F] [-A] [-D] PIPE2D_VERSION  RERUN  BLOCKS" 1>&2
+    echo "Usage: $0 [-c CORES] [-C] [-R] [-M] [-F] [-A] [-D] PIPE2D_VERSION  RERUN  BLOCKS" 1>&2
     echo "" 1>&2
     echo "    -c <CORES> : number of cores to use (default: ${CORES})" 1>&2
+    echo "    -C : CALIB name (default: CALIB})" 1>&2
     echo "    -d : dry run (just make a script)" 1>&2
     echo "    -R : skip reduceExposure process" 1>&2
     echo "    -M : skip mergeArms process" 1>&2
@@ -13,6 +14,7 @@ usage() {
     echo "    -A : skip coaddSpectra process" 1>&2
     echo "    -D : developer mode (--clobber-config --no-versions)" 1>&2
     echo "    -y : YAML file for configuration" 1>&2
+    echo "    -a : append new lines to logfile" 1>&2
     echo "    PIPE2D_VERSION : version of PIPE2D (e.g., w.2023.25)" 1>&2
     echo "    DATE_PROCESS : date of the processing (e.g., 20230601)" 1>&2
     echo "    RERUN : rerun mame (e.g., edr2-20230601)" 1>&2
@@ -24,25 +26,33 @@ usage() {
 
 
 REPO=/work/drp
-CALIB=$REPO/CALIB
 YAML=process_all.yaml
-WORKDIR=/work/pfs/reduction/process/run12
+WORKDIR=/work/pfs/reduction/process/edr2
 OUTDIR=$WORKDIR/scripts
 LOGDIR=$WORKDIR/logs
 mkdir -p $OUTDIR
 mkdir -p $LOGDIR
 
 CORES=24
+CALIB="CALIB"
 SKIP_REDUCE=false
 SKIP_MERGE=false
 SKIP_FLUXCAL=false
 SKIP_COADD=false
 DEVELOPER=false
 DRY_RUN=false
-while getopts "c:dRMFADy:" opt; do
+APPEND_NEWLOG=false
+
+while getopts "ac:C:dRMFADy:" opt; do
     case "${opt}" in
+	a)
+            APPEND_NEWLOG=true
+            ;;
         c)
             CORES=${OPTARG}
+            ;;
+	C)
+            CALIB=${OPTARG}
             ;;
         d)
             DRY_RUN=true
@@ -84,7 +94,7 @@ RERUN=$3
 BLOCKS=$4
 
 setup -v pfs_pipe2d $PIPE2D_VERSION
-setup -jr /work/pfs/reduction/fluxCal/fluxmodeldata-ambre-20230608-small
+setup -jr /work/pfs/reduction/fluxCal/fluxmodeldata-ambre-20230608-full
 
 export OMP_NUM_THREADS=1
 
@@ -112,26 +122,31 @@ fi
 
 BLOCK=`echo ${BLOCKS//,/\ }`
 
+teeOption=""
+if [ "$APPEND_NEWLOG" = true ]; then
+    teeOption="-a"
+fi
+
 ## generate commands ##
 generateCommands.py $REPO \
     configs/$YAML \
     $OUTDIR/$OUTFILE \
+    --calib=$REPO/$CALIB \
     --rerun=$RERUN \
     --blocks $BLOCK \
     --scienceSteps $scienceSteps \
     -j $CORES $develFlag \
-    2>&1 | tee $LOGDIR/$LOGFILE
+    2>&1 | tee $teeOption $LOGDIR/$LOGFILE
 
-## tempral workaround for the flux calibration commands etc. ##
+## temporal workaround for the flux calibration commands etc. ##
 sed -i -e "s/calculateReferenceFlux/fitPfsFluxReference/g" $OUTDIR/$OUTFILE
 sed -i -e "s/fluxCalibrate/fitFluxCal/g" $OUTDIR/$OUTFILE
 sed -i -e "s/\/pipeline//g" $OUTDIR/$OUTFILE
-sed -i -e "s/--doraise/--doraise --longlog 1/g" $OUTDIR/$OUTFILE
+sed -i -e "s/--doraise/--longlog 1/g" $OUTDIR/$OUTFILE
 
 ## run the script ##
 if [ "$DRY_RUN" != true ]; then
-    sh $OUTDIR/$OUTFILE 2>&1 | tee $LOGDIR/$LOGFILE
+    sh $OUTDIR/$OUTFILE 2>&1 | tee $teeOption $LOGDIR/$LOGFILE
 else
     echo "DRY RUN"
 fi
-

@@ -3,32 +3,77 @@
 #
 scienceBlock:
   - name: "test"
-    id: ["visit=97387"]
+    id: ["visit=96925"]
     policy:
       reduceExposure:
-        config: ["isr.doFlat=False"]
+        config: ["isr.doFlat=False", "doAdjustDetectorMap=True", "adjustDetectorMap.doSlitOffsets=True"]
+  - name: "run12_subset"
+    id: ["visit=98042^98043^97252^97253^97813^97814^97821"]
+    policy:
+      reduceExposure:
+        config: ["isr.doFlat=False", "doAdjustDetectorMap=True", "adjustDetectorMap.doSlitOffsets=True"]
+  - name: "run11_subset"
+    id: ["visit=92014^92975^91563^92743^92536^93302"]
+    policy:
+      reduceExposure:
+        config: ["isr.doFlat=False", "doAdjustDetectorMap=True", "adjustDetectorMap.doSlitOffsets=True"]
+  - name: "run08_subset"
+    id: ["visit=83244^83249^83149^83218"]
+    policy:
+      reduceExposure:
+        config: ["isr.doFlat=False", "doAdjustDetectorMap=True", "adjustDetectorMap.doSlitOffsets=True"]
   - name: "ge_run12_subset"
     id: ["visit=98042^98043"]
     policy:
       reduceExposure:
-        config: ["isr.doFlat=False"]
-  - name: "sky_run12_subset"
-    id: ["visit=97252^97253"]
+        config: ["isr.doFlat=False", "doAdjustDetectorMap=True", "adjustDetectorMap.doSlitOffsets=True"]
+  - name: "ge_run11_subset"
+    id: ["visit=92014^92975"]
     policy:
       reduceExposure:
-        config: ["isr.doFlat=False"]
+        config: ["isr.doFlat=False", "doAdjustDetectorMap=True", "adjustDetectorMap.doSlitOffsets=True"]
+  - name: "ge_run08_subset"
+    id: ["visit=83244^83249"]
+    policy:
+      reduceExposure:
+        config: ["isr.doFlat=False", "doAdjustDetectorMap=True", "adjustDetectorMap.doSlitOffsets=True"]
+  - name: "sky_run12_subset"
+    id: ["visit=97252^97253^97813^97814"]
+    policy:
+      reduceExposure:
+        config: ["isr.doFlat=False", "doAdjustDetectorMap=True", "adjustDetectorMap.doSlitOffsets=True"]
+  - name: "sky_run11_subset"
+    id: ["visit=91563^92743"]
+    policy:
+      reduceExposure:
+        config: ["isr.doFlat=False", "doAdjustDetectorMap=True", "adjustDetectorMap.doSlitOffsets=True"]
   - name: "ga_run12_subset"
     id: ["visit=97821"]
     policy:
       reduceExposure:
-        config: ["isr.doFlat=False"]
+        config: ["isr.doFlat=False", "doAdjustDetectorMap=True", "adjustDetectorMap.doSlitOffsets=True"]
+  - name: "ga_run11_subset"
+    id: ["visit=92536^93302"]
+    policy:
+      reduceExposure:
+        config: ["isr.doFlat=False", "doAdjustDetectorMap=True", "adjustDetectorMap.doSlitOffsets=True"]
+  - name: "ga_run08_subset"
+    id: ["visit=83218"]
+    policy:
+      reduceExposure:
+        config: ["isr.doFlat=False", "doAdjustDetectorMap=True", "adjustDetectorMap.doSlitOffsets=True"]
+  - name: "arcs_run12_subset"
+    id: ["visit=96921^96925^96928^96932^96958^96960^96963^96966^96969^97217"]
+    policy:
+      reduceExposure:
+        config: ["isr.doFlat=False", "doAdjustDetectorMap=True", "adjustDetectorMap.doSlitOffsets=True"]
+  - name: "traces_run12_subset"
+    id: ["visit=96938^96952^96972^97036^97236^97774^97779^97786^97805^98595^98604^98610^98626^98654^98665^98671^98687^98715^98720^98726^98742"]
+    policy:
+      reduceExposure:
+        config: ["isr.doFlat=False", "doAdjustDetectorMap=True", "adjustDetectorMap.doSlitOffsets=True"]
   - name: "twilight_run12_subset"
-    id: ["visit=97383^97388"]
+    id: ["visit=97168^97383^97833^98063^98069"]
     policy:
       reduceExposure:
-        config: ["isr.doFlat=False"]
-  - name: "quartz_run12_subset"
-    id: ["visit=96952^96944"]
-    policy:
-      reduceExposure:
-        config: ["isr.doFlat=False"]
+        config: ["isr.doFlat=False", "doAdjustDetectorMap=True", "adjustDetectorMap.doSlitOffsets=True"]
